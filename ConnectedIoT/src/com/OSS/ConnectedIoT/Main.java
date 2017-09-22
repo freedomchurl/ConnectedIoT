@@ -14,9 +14,12 @@ public class Main extends Application {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("ConnectedIoT.fxml"));
 			Scene scene = new Scene(root);
+			primaryStage.setTitle("Connected IoT - Main Page");
+			primaryStage.setResizable(false);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -26,3 +29,5 @@ public class Main extends Application {
 		launch(args);
 	}
 }
+
+// 나중에 홈버튼 추가할 것

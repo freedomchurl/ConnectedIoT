@@ -7,10 +7,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="com.OSS.ConnectedIoT.ConnectedIoTController">
+<BorderPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.OSS.ConnectedIoT.ConnectedIoTController">
    <top>
-      <BorderPane BorderPane.alignment="CENTER">
+      <BorderPane style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
          <center>
             <Label alignment="CENTER" prefHeight="100.0" prefWidth="1280.0" text="Connected IoT" textAlignment="CENTER" textFill="#0174df" BorderPane.alignment="CENTER">
                <font>
@@ -22,7 +21,7 @@
             </Label>
          </center>
          <bottom>
-            <BorderPane BorderPane.alignment="CENTER">
+            <BorderPane style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
                <center>
                   <Label alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="1280.0" text="IoT를 하나로...." textAlignment="RIGHT" textFill="#d73131" BorderPane.alignment="CENTER_RIGHT">
                      <font>
@@ -38,7 +37,7 @@
       </BorderPane>
    </top>
    <center>
-      <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="createproject" mnemonicParsing="false" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #0174DF;" text="프로젝트 생성" textFill="WHITE">
                <HBox.margin>
@@ -48,7 +47,7 @@
                   <Font name="NanumSquare ExtraBold" size="25.0" />
                </font>
             </Button>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #0174DF;" text="프로젝트 관리" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="manageproject" alignment="CENTER" mnemonicParsing="false" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #0174DF;" text="프로젝트 관리" textAlignment="CENTER" textFill="WHITE">
                <HBox.margin>
                   <Insets bottom="10.0" left="75.0" />
                </HBox.margin>
