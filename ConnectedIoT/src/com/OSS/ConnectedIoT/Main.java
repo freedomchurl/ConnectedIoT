@@ -30,4 +30,4 @@ public class Main extends Application {
 	}
 }
 
-// 나중에 홈버튼 추가할 것
+// 나중에 홈버튼 추가할 것 왼쪽 상단에
