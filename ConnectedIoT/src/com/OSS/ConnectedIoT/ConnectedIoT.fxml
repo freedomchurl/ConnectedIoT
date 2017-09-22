@@ -10,7 +10,7 @@
 
 <BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="com.OSS.ConnectedIoT.ConnectedIoTController">
    <top>
-      <BorderPane prefHeight="244.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+      <BorderPane BorderPane.alignment="CENTER">
          <center>
             <Label alignment="CENTER" prefHeight="100.0" prefWidth="1280.0" text="Connected IoT" textAlignment="CENTER" textFill="#0174df" BorderPane.alignment="CENTER">
                <font>
@@ -22,7 +22,7 @@
             </Label>
          </center>
          <bottom>
-            <BorderPane prefHeight="40.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+            <BorderPane BorderPane.alignment="CENTER">
                <center>
                   <Label alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="1280.0" text="IoT를 하나로...." textAlignment="RIGHT" textFill="#d73131" BorderPane.alignment="CENTER_RIGHT">
                      <font>
@@ -38,7 +38,7 @@
       </BorderPane>
    </top>
    <center>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="createproject" mnemonicParsing="false" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #0174DF;" text="프로젝트 생성" textFill="WHITE">
                <HBox.margin>
@@ -65,4 +65,17 @@
          </BorderPane.margin>
       </HBox>
    </center>
+   <bottom>
+      <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="1280.0" text="BBD" textAlignment="CENTER" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="NanumGothicExtraBold" size="19.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets right="50.0" />
+         </padding>
+      </Label>
+   </bottom>
 </BorderPane>
