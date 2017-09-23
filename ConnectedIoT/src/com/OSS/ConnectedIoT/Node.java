@@ -8,7 +8,7 @@ public class Node {
 	private String ProtocolType; // 통신하는 프로토콜의 타입을 지정한다.
 	private String NodeInfo; // 노드에 대한 설명
 	private String NodeLocation; // 노드 위치 등등.. 이건 String이 아니라 다른걸로 대체하는것이 좋을 수도 있겠다.
-	
+	private String NodeAddress; // 노드의 IP주소나, http주소 등을 담도록 한다.
 	
 	// 그외 어떤것들이 필요할지 계속 단계적으로 추가해 나가도록 한다.
 }
