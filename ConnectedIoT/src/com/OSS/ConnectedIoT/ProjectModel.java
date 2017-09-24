@@ -25,6 +25,14 @@ public class ProjectModel {
 		this.projectName = new SimpleStringProperty(projectName);
 	}
 	
+	public ProjectModel(Project input)
+	{
+		this.projectAddition = new SimpleStringProperty(input.getProjectAddition());
+		this.projectDate = new SimpleStringProperty(input.getCreateDate());
+		this.projectInfo = new SimpleStringProperty(input.getProejctInfo());
+		this.projectName = new SimpleStringProperty(input.getProjectName());
+	}
+	
 	public String getName()
 	{
 		return projectName.get();

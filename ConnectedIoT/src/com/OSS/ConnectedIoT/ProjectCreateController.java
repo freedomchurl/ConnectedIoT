@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -12,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -27,10 +30,23 @@ public class ProjectCreateController implements Initializable{
 	@FXML private TextField projectName;
 	@FXML private TextArea projectInfo;
 	
+	@FXML private ComboBox protocolBox;
+	
+	
+	private String[] protocolList = {"TCP","UDP","COAP","MQTT"};
+	
+	ObservableList<String> options = FXCollections.observableArrayList(
+	
+			protocolList
+	);
+	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		
+		
+		SetProtocolBox();
 		
 		Create.setOnAction(new EventHandler<ActionEvent>()
 		{
@@ -58,6 +74,12 @@ public class ProjectCreateController implements Initializable{
 		
 	}
 
+	// Protocol ComboBox를 설정한다.
+	public void SetProtocolBox()
+	{
+		protocolBox.setItems(options);
+	}
+	
 	
 	// 취소 버튼을 눌렀을 때, 원래의 Main Scene을 보여준다.
 	public void GoBackToMain(ActionEvent event)

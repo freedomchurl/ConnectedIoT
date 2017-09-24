@@ -9,8 +9,9 @@ public class Project {
 
 	private String projectName = null; // 프로젝트 이름
 	private String projectInfo = null; // 프로젝트 설명
-	private String createData = null; // 프로젝트 생성일
-	 
+	private String createDate = null; // 프로젝트 생성일
+	
+	private String projectAddition = "";
 	// 기타 등등 얼마든지 추가될 수 있다
 	
 	private ArrayList<Node> myNodes = null; // 노드들을 담을 ArrayList가 필요하다
@@ -28,11 +29,47 @@ public class Project {
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat current = new SimpleDateFormat("yyyy:MM:dd-hh:mm:ss");
 		// 현재 시간을 구해서 문자열로 저장하는 부분
-		this.createData = current.format(cal.getTime());
+		this.createDate = current.format(cal.getTime());
 		
 		myNodes = new ArrayList<Node>();
 		
 		// 여기다가 노드들을 추가해야한다.
+	}
+	
+	Project(String projectName, String projectInfo, String projectAddition)
+	{
+		this.projectInfo = projectInfo;
+		this.projectName = projectName;
+		this.projectAddition = projectAddition;
+		
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat current = new SimpleDateFormat("yyyy:MM:dd-hh:mm:ss");
+		// 현재 시간을 구해서 문자열로 저장하는 부분
+		this.createDate = current.format(cal.getTime());
+		
+		myNodes = new ArrayList<Node>();
+		
+		// 여기다가 노드들을 추가해야한다.
+	}
+	
+	public String getProjectName()
+	{
+		return this.projectName;
+	}
+	
+	public String getProejctInfo()
+	{
+		return this.projectInfo;
+	}
+	
+	public String getCreateDate()
+	{
+		return this.createDate;
+	}
+	
+	public String getProjectAddition()
+	{
+		return this.projectAddition;
 	}
 	
 }
