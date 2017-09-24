@@ -2,6 +2,7 @@ package com.OSS.ConnectedIoT;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -16,8 +17,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 // 프로젝트 생성을 하는 창에서 이벤트처리를 담당할 Controller
@@ -32,21 +36,47 @@ public class ProjectCreateController implements Initializable{
 	
 	@FXML private ComboBox protocolBox;
 	
+	@FXML private Button AddNode;
+	@FXML private TextField deviceInfo;
+	@FXML private TextField deviceName;
+	@FXML private TextField deviceAddress;
+	
+	@FXML private TableView<NodeModel> nodeTable;
+	
+	private ArrayList<Node> NodeList = new ArrayList<Node>();
+	
+	@FXML
+	TableColumn<NodeModel,String> tcName ;
+	@FXML
+	TableColumn<NodeModel,String> tcInfo;
+	@FXML
+	TableColumn<NodeModel,String> tcAddress;
+	@FXML
+	TableColumn<NodeModel,String> tcProtocol;
 	
 	private String[] protocolList = {"TCP","UDP","COAP","MQTT"};
 	
-	ObservableList<String> options = FXCollections.observableArrayList(
+	ObservableList<String> protocolOptions = FXCollections.observableArrayList(
 	
 			protocolList
 	);
 	
+	ObservableList<NodeModel> nodeModelList = FXCollections.observableArrayList();
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		
+		tcName.setCellValueFactory(new PropertyValueFactory<NodeModel,String>("NodeName"));
+		tcInfo.setCellValueFactory(new PropertyValueFactory<NodeModel,String>("NodeInfo"));
+		tcAddress.setCellValueFactory(new PropertyValueFactory<NodeModel,String>("NodeAddress"));
+		tcProtocol.setCellValueFactory(new PropertyValueFactory<NodeModel,String>("NodeProtocol"));
+		
+		nodeTable.setItems(nodeModelList);
 		
 		SetProtocolBox();
+		
+		
 		
 		Create.setOnAction(new EventHandler<ActionEvent>()
 		{
@@ -70,14 +100,45 @@ public class ProjectCreateController implements Initializable{
 			
 		});
 
-		
+		AddNode.setOnAction(new EventHandler<ActionEvent>(){
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				AddNode();
+			}
+			
+		});
 		
 	}
 
+	public void AddNode()
+	{
+		String devicename = deviceName.getText();
+		String deviceaddress = deviceAddress.getText();
+		String deviceprotocol = (String) protocolBox.getSelectionModel().getSelectedItem();
+		String deviceinfo = deviceInfo.getText();
+		
+		System.out.println("Try Add node!");
+		
+		if(devicename != null && !"".equals(devicename) && deviceaddress != null && !"".equals(deviceaddress)
+			&& deviceprotocol != null && !"".equals(deviceprotocol))
+		{
+			Node tmpNode = new Node(devicename,deviceprotocol,deviceinfo,deviceaddress);
+			NodeList.add(tmpNode);
+			// 새로운 노드를 추가한다. 저장은 프로젝트를 생성함과 동시에 이루어지도록 한다.
+			
+			nodeModelList.add(new NodeModel(tmpNode));
+			System.out.println("Try Add node222!");
+		}
+		
+	
+	}
+	
 	// Protocol ComboBox를 설정한다.
 	public void SetProtocolBox()
 	{
-		protocolBox.setItems(options);
+		protocolBox.setItems(protocolOptions);
 	}
 	
 	

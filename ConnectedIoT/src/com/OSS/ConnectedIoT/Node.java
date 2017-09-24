@@ -12,4 +12,33 @@ public class Node {
 	
 	
 	// 그외 어떤것들이 필요할지 계속 단계적으로 추가해 나가도록 한다.
+	
+	Node(String name, String protocol, String info, String address)
+	{
+		this.NodeAddress = address;
+		this.ProtocolType = protocol;
+		this.NodeInfo = info;
+		this.NodeName = name;
+		this.NodeLocation = "";
+	}
+
+	public String getNodeName()
+	{
+		return this.NodeName;
+	}
+	
+	public String getProejctInfo()
+	{
+		return this.NodeInfo;
+	}
+	
+	public String getCreateAddress()
+	{
+		return this.NodeAddress;
+	}
+	
+	public String getNodeProtocol()
+	{
+		return this.ProtocolType;
+	}
 }

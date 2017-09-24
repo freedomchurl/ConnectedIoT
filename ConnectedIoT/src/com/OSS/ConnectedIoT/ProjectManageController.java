@@ -20,7 +20,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class ProjectManageController implements Initializable{
@@ -42,6 +44,19 @@ public class ProjectManageController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		
+		TableColumn tcName = projects.getColumns().get(0);
+		TableColumn tcInfo = projects.getColumns().get(1);
+		TableColumn tcDate = projects.getColumns().get(2);
+		TableColumn tcAddition = projects.getColumns().get(3);
+		
+		tcName.setCellValueFactory(new PropertyValueFactory("projectName"));
+		tcInfo.setCellValueFactory(new PropertyValueFactory("projectInfo"));
+		tcDate.setCellValueFactory(new PropertyValueFactory("projectDate"));
+		tcAddition.setCellValueFactory(new PropertyValueFactory("projectAddition"));
+			
+		
+		// 이부분이 매칭하는 부분이다.
 		
 		LoadProject();
 		
@@ -84,6 +99,7 @@ public class ProjectManageController implements Initializable{
 			projectModelList.add(new ProjectModel(projectList.get(i)));
 		}
 		projects.setItems(projectModelList);
+		
 	}
 	
 	// 취소 버튼을 눌렀을 때, 원래의 Main Scene을 보여준다.
